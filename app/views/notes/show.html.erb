@@ -1,0 +1,6 @@
+<!-- app/views/notes/show.html.erb -->
+<h1><%= @note.title %></h1>
+<p><%= @note.content %></p>
+
+<%= link_to 'Editar', edit_note_path(@note) %> |
+<%= link_to 'Voltar', notes_path %>

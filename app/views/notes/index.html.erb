@@ -1,0 +1,12 @@
+<!-- app/views/notes/index.html.erb -->
+<h1>Todas as Notas</h1>
+
+<% @notes.each do |note| %>
+  <h3><%= link_to note.title, note %></h3>
+  <p><%= note.content %></p>
+  <%= link_to 'Editar', edit_note_path(note) %> |
+  <%= link_to 'Excluir', note, method: :delete, data: { confirm: 'Tem certeza?' } %>
+  <hr>
+<% end %>
+
+<%= link_to 'Nova Nota', new_note_path %>
