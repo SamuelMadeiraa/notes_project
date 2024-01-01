@@ -1,22 +1,28 @@
 <!-- app/views/notes/index.html.erb -->
-<h1 class="bg-black  text-white text-center m-5 p-10  rounded-md">Todas as Notas</h1>
 
-<% @notes.each do |note| %>
-  <div class="card " style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title bg-black text-white"><h3><%= link_to note.title, note %></h3></h5>
-    <p class="card-text"><p><%= note.content %></p>
-    <a href="#""><%= link_to 'Editar', edit_note_path(note) %> |
-    <%= link_to 'Excluir', note, method: :delete, data: { confirm: 'Tem certeza?' } %></a><p><%= note.content %></p>
-  </div>
+<h1 class="bg-black text-white text-center m-5 p-10 rounded-md">Todas as Notas</h1>
+
+<div class="flex flex-wrap">
+  <% @notes.each do |note| %>
+    <div class="box-content h-32 w-32 p-4 border-4 m-2">
+      <div class="">
+        <div class="">
+          <h5 class=" bg-black text-white">
+            <%= link_to note.title, note %>
+          </h5>
+          <%= note.content %>
+          
+            <%= link_to 'Editar', edit_note_path(note) %> |
+            <%= link_to 'Excluir', note, method: :delete, data: { confirm: 'Tem certeza?' } %>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
-  
-  <hr>
-<% end %>
 
-<button class="text-center m-5 bg-black text-white rounded-md p-5 m-20" >
+<hr>
+
+<button class="text-center m-5 bg-black text-white rounded-md p-5 m-20">
   <%= link_to 'Nova Nota', new_note_path %>
 </button>
-
-
-
