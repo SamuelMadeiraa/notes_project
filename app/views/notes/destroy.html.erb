@@ -1,0 +1,7 @@
+<!-- app/views/notes/destroy.html.erb -->
+<h1>Confirmação de Exclusão</h1>
+
+<p>Você tem certeza que deseja excluir a nota "<%= @note.title %>"?</p>
+
+<%= link_to 'Sim, Excluir', @note, method: :delete %>
+<%= link_to 'Cancelar', note_path(@note) %>

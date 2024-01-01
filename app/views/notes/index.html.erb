@@ -1,12 +1,22 @@
 <!-- app/views/notes/index.html.erb -->
-<h1 class="text-center m-5">Todas as Notas</h1>
+<h1 class="bg-black  text-white text-center m-5 p-10  rounded-md">Todas as Notas</h1>
 
 <% @notes.each do |note| %>
-  <h3><%= link_to note.title, note %></h3>
-  <p><%= note.content %></p>
-  <%= link_to 'Editar', edit_note_path(note) %> |
-  <%= link_to 'Excluir', note, method: :delete, data: { confirm: 'Tem certeza?' } %>
+  <div class="card " style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title bg-black text-white"><h3><%= link_to note.title, note %></h3></h5>
+    <p class="card-text"><p><%= note.content %></p>
+    <a href="#""><%= link_to 'Editar', edit_note_path(note) %> |
+    <%= link_to 'Excluir', note, method: :delete, data: { confirm: 'Tem certeza?' } %></a><p><%= note.content %></p>
+  </div>
+</div>
+  
   <hr>
 <% end %>
 
-<%= link_to 'Nova Nota', new_note_path %>
+<button class="text-center m-5 bg-black text-white rounded-md p-5 m-20" >
+  <%= link_to 'Nova Nota', new_note_path %>
+</button>
+
+
+
