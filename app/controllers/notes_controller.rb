@@ -28,10 +28,12 @@ class NotesController < ApplicationController
     end
   
     def update
-      if @note.update(note_params)
-        redirect_to @note, notice: 'Nota atualizada com sucesso.'
+      @note = Note.find(params[:id])
+  
+      if @note.update(completed: true)
+        redirect_to notes_path, notice: 'Nota atualizada com sucesso.'
       else
-        render :edit
+        redirect_to notes_path, alert: 'Erro ao atualizar a nota.'
       end
     end
   

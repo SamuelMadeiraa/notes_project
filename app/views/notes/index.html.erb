@@ -17,6 +17,8 @@
       <% else %>
         <%= "Nota não completa" %>
       <% end %>
+      <%= button_to "Atualizar", note_path(note), method: :patch, data: { confirm: 'Tem certeza?' } %>
+
     </div>
   <% end %>
 </div>
