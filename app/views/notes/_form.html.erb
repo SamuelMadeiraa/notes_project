@@ -1,9 +1,8 @@
-<!-- app/views/notes/_form.html.erb -->
 <%= form_with(model: @note, local: true) do |form| %>
   <% if @note.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@note.errors.count, 'erro') %> impediu que esta nota fosse salva:</h2>
-      <ul>
+    <div id="error_explanation" class="mb-5">
+      <h2 class="text-red-500 font-bold"><%= pluralize(@note.errors.count, 'erro') %> impediu que esta nota fosse salva:</h2>
+      <ul class="list-disc text-red-500">
         <% @note.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
@@ -11,17 +10,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="mb-5">
+    <%= form.label :title, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.text_field :title, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
   </div>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+  <div class="mb-5">
+    <%= form.label :content, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.text_area :content, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="flex items-start mb-5">
+    <%= form.submit "Adicionar nova nota", class: "text-white bg-black hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" %>
   </div>
 <% end %>

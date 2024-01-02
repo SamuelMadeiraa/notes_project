@@ -4,21 +4,16 @@
 
 <div class="flex flex-wrap">
   <% @notes.each do |note| %>
-    <div class="box-content h-32 w-32 p-4 border-4 m-2">
-      <div class="">
-        <div class="">
-          <h5 class=" bg-black text-white">
+    <div class="box-content h-32 w-32 p-4 border-4 m-2 rounded-md">
+      <h5 class=" bg-black text-white">
             <%= link_to note.title, note %>
           </h5>
           <%= note.content %>
-          
-            <%= link_to 'Editar', edit_note_path(note) %> |
+          <%= link_to 'Editar', edit_note_path(note) %> |
             <%= link_to 'Excluir', note, method: :delete, data: { confirm: 'Tem certeza?' } %>
           </p>
         </div>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
 </div>
 
 <hr>
