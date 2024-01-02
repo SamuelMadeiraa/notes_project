@@ -12,6 +12,8 @@
           <%= link_to 'Editar', edit_note_path(note) %> |
             <%= link_to 'Excluir', note, method: :delete, data: { confirm: 'Tem certeza?' } %>
           </p>
+          <!-- Adiciona um ícone de check se a nota estiver concluída -->
+          <%= note.completed ? image_tag("https://img.freepik.com/vetores-premium/icone-colorido-feito-ok-concluido-pronto_890735-37.jpg?w=2000", alt: "Concluída") : "ooooo" %>
         </div>
     <% end %>
 </div>
@@ -21,3 +23,4 @@
 <button class="text-center m-5 bg-black text-white rounded-md p-5 m-20">
   <%= link_to 'Nova Nota', new_note_path %>
 </button>
+
