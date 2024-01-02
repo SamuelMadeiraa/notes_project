@@ -2,5 +2,14 @@
 <h1><%= @note.title %></h1>
 <p><%= @note.content %></p>
 
+
+<ul>
+  <li><%= link_to "Edit", edit_note_path(@note) %></li>
+  <li><%= link_to "Destroy", note_path(@note), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+
 <%= link_to 'Editar', edit_note_path(@note) %> |
 <%= link_to 'Voltar', notes_path %>
