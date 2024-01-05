@@ -2,29 +2,43 @@
 
 <h1 class="bg-black text-white text-center m-5 p-10 rounded-md">Todas as Notas</h1>
 
+
+<hr>
+
+
+
 <div class="flex flex-wrap">
   <% @notes.each do |note| %>
-    <div class="box-content h-32 w-32 p-4 border-4 m-2 rounded-md <%= note.completed ? 'bg-green-500' : 'bg-red-500' %>">
-      <h5 class="bg-black text-white">
-        <%= link_to note.title, note %>
-      </h5>
-      <%= note.content %>
-      <%= link_to 'Editar', edit_note_path(note) %> |
-      <%= link_to 'Excluir', note, method: :delete, data: { confirm: 'Tem certeza?' } %>
+  <div class="max-w-sm rounded overflow-hidden shadow-lg p-4  m-2 rounded-md  <%= note.completed ? 'bg-green-500' : 'bg-red-500' %>">
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">Titulo: <%= link_to note.title, note %></div>
+    <p class="text-gray-700 text-base">
+    <h1>Descrição: <%= note.content %></h1>
+    <p>Date: <%= note.date.strftime('%d/%m/%Y') if note.date.present? %></p>
+    <p><%= note.completed ? "Tarefa Concluida" : "Tarefa Não concluida" %></p>
 
-      <% if note.completed %>
-        <%= "Nota completa" %>
-      <% else %>
-        <%= "Nota não completa" %>
-      <% end %>
-      <%= button_to "Atualizar", note_path(note), method: :patch, data: { confirm: 'Tem certeza?' } %>
+    </p>
+  </div>
+  <div class="px-6 pt-4 pb-2">
+    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"><%= link_to 'Excluir', note, method: :delete, data: { confirm: 'Tem certeza?' } %>
+    </span>
+    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"><%= button_to "Atualizar", note_path(note), method: :patch, data: { confirm: 'Tem certeza?' } %>
+    </span>
+  </div>
+</div>
+    <div class="">
+      <h5 class="bg-black text-white"></h5>
+
+      
+     
+
+     
 
     </div>
   <% end %>
 </div>
 
-<hr>
 
-<button class="text-center m-5 bg-black text-white rounded-md p-5 m-20">
+  <button class="text-center m-5 bg-black text-white rounded-md p-5 m-20">
   <%= link_to 'Nova Nota', new_note_path %>
 </button>

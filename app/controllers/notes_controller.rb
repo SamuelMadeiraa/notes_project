@@ -18,6 +18,7 @@ class NotesController < ApplicationController
     def create
       @note = Note.new(note_params)
       if @note.save
+        Note.last&.update(date: DateTime.now.strftime("%Y-%m-%d %H:%M:%S"))
         redirect_to @note, notice: 'Nota criada com sucesso.'
       else
         render :new
