@@ -1,27 +1,41 @@
-<!-- app/views/notes/_form.html.erb -->
-<%= form_with(model: @note, local: true) do |form| %>
-  <% if @note.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@note.errors.count, 'erro') %> impediu que esta nota fosse salva:</h2>
-      <ul>
-        <% @note.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+<div class="mx-auto w-full max-w-sm">
+  <%= form_with(model: @note, local: true) do |form| %>
+    <% if @note.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@note.errors.count, 'erro') %> impediu que esta nota fosse salva:</h2>
+        <ul>
+          <% @note.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2 text-center">Criar Nova Nota/Editar</div>
+        <p class="text-gray-700 text-base">
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="note_title">
+              <%= form.label :title %>
+            </label>
+            <%= form.text_field :title, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", placeholder: "Titulo da Nota" %>
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="note_content">
+              <%= form.label :content %>
+            </label>
+            <%= form.text_field :content, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", placeholder: "Descrição da Nota" %>
+          </div>
+        </p>
+        <div class="flex items-center justify-between">
+          <button class="bg-black hover:bg-black text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+            Criar Nota/Editar
+          </button>
+          <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
+          </a>
+        </div>
+      </div>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

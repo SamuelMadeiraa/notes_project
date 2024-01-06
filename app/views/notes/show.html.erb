@@ -1,16 +1,16 @@
-<!-- app/views/notes/show.html.erb -->
-<h1><%= @note.title %></h1>
-<p><%= @note.content %></p>
-
-
-
-<ul>
-  <li><%= link_to "Edit", edit_note_path(@note) %></li>
-  <li><%= link_to "Destroy", note_path(@note), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></li>
-</ul>
-
-<%= link_to 'Editar', edit_note_path(@note) %> |
-<%= link_to 'Voltar', notes_path %>
+<div class="mx-auto w-full max-w-sm">
+<div class="max-w-sm rounded overflow-hidden shadow-lg ">
+  
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">Titulo: <h1><%= @note.title %></h1></div>
+    <p class="text-gray-700 text-base">
+    <p>Descrição: <%= @note.content %></p>
+    </p>
+  </div>
+  <div class="px-6 pt-4 pb-2">
+    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"><%= link_to 'Editar', edit_note_path(@note) %> </span>
+    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">  <%= link_to "Apagar", note_path(@note), data: {  turbo_method: :delete, turbo_confirm: "Are you sure?" } %></li>
+    </span>
+    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"><%= link_to 'Voltar', notes_path %></span>
+  </div>
+  </div>
