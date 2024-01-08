@@ -19,8 +19,13 @@
   </span>
   <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"><%= link_to 'Excluir', note, method: :delete, data: { confirm: 'Tem certeza?' } %>
     </span>
-    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"><%= button_to "Atualizar", note_path(note), method: :patch, data: { confirm: 'Tem certeza?' } %>
-    </span>
+    <span class="inline-block bg-transparent rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+  <%= note.completed? ? 
+    content_tag(:span, button_to('Concluir', note_path(note), method: :patch, data: { confirm: 'Tem certeza?' }), class: 'hidden') :
+    button_to('Concluir', note_path(note), method: :patch, data: { confirm: 'Tem certeza?' })
+  %>
+</span>
+
   </div>
 </div>
     

@@ -3,8 +3,10 @@ class NotesController < ApplicationController
   
     def index
       @notes = Note.all
+      @notes_concluida = true
       # @notes_by_month = Note.metodo_da_model_que_filtra_por_mes(month)
       march_notes = Note.march_notes
+      
 
     end
   
