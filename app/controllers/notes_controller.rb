@@ -2,14 +2,19 @@ class NotesController < ApplicationController
     before_action :set_note, only: [:show, :edit, :update, :destroy]
   
     def index
-      @notes = Note.all
-      @notes_concluida = true
-      # @notes_by_month = Note.metodo_da_model_que_filtra_por_mes(month)
-      march_notes = Note.march_notes
-      
-
+      # @notes = Note.all
+      # @notes = Note.where(title: params[:Pesquisar])
+      # # @notes_concluida = true
+      # # @notes_by_month = Note.metodo_da_model_que_filtra_por_mes(month)
+      if params[:pesquisa].present?
+        @notes = Note.search_by_title(params[:pesquisa])
+      else
+        @notes = Note.all
+      end
     end
   
+    
+
     def show
     end
   
@@ -44,6 +49,8 @@ class NotesController < ApplicationController
       @note.destroy
       redirect_to notes_url, notice: 'Nota excluída com sucesso.'
     end
+
+    
   
     private
   
