@@ -5,6 +5,8 @@
     <%= submit_tag 'pesquisa' %>
 <% end %>
 
+
+
 <div class="flex flex-wrap">
   <% @notes.each do |note| %>
     <div class="max-w-sm rounded overflow-hidden shadow-lg p-4 m-2 rounded-md <%= note.completed ? 'bg-green-500' : 'bg-red-500' %>">

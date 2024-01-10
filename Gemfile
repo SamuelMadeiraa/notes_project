@@ -72,3 +72,5 @@ end
 gem 'bootstrap', '~> 5.0.2'
 gem 'pg', '~> 1.5', '>= 1.5.4'
 gem 'pg_search'
+
+gem "devise", "~> 4.9"
